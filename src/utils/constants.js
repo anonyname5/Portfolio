@@ -36,26 +36,22 @@ export const socialLinks = {
   twitter: "https://twitter.com/yourusername" // optional
 };
 
-export const skills = {
-  proficient: [
-    { name: "React", icon: "react", color: "#61DAFB" },
-    { name: "JavaScript", icon: "javascript", color: "#F7DF1E" },
-    { name: "HTML/CSS", icon: "html5", color: "#E34F26" },
-    { name: "Git", icon: "git", color: "#F05032" }
-  ],
-  experienced: [
-    { name: "Node.js", icon: "nodejs", color: "#339933" },
-    { name: "Flutter", icon: "flutter", color: "#02569B" },
-    { name: "TailwindCSS", icon: "tailwindcss", color: "#06B6D4" },
-    { name: "MongoDB", icon: "mongodb", color: "#47A248" },
-    { name: "SQL", icon: "mysql", color: "#4479A1" }
-  ],
-  learning: [
-    { name: "Next.js", icon: "nextjs", color: "#000000" },
-    { name: "TypeScript", icon: "typescript", color: "#3178C6" },
-    { name: "Docker", icon: "docker", color: "#2496ED" }
-  ]
-};
+export const skills = [
+  { name: "HTML", icon: "html5", color: "#E34F26" },
+  { name: "CSS", icon: "css3", color: "#1572B6" },
+  { name: "JavaScript", icon: "javascript", color: "#F7DF1E" },
+  { name: "PHP", icon: "php", color: "#777BB4" },
+  { name: "C#", icon: "csharp", color: "#239120" },
+  { name: "Python", icon: "python", color: "#3776AB" },
+  { name: "Dart", icon: "dart", color: "#0175C2" }
+];
+
+export const frameworks = [
+  { name: "Laravel", icon: "laravel", color: "#FF2D20" },
+  { name: ".NET", icon: "dotnet", color: "#512BD4" },
+  { name: "Flutter", icon: "flutter", color: "#02569B" },
+  { name: "React", icon: "react", color: "#61DAFB" }
+];
 
 export const projects = [
   {

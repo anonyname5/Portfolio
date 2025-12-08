@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { skills } from '../../utils/constants';
+import { skills, frameworks } from '../../utils/constants';
 import SkillCard from '../ui/SkillCard';
 import Card from '../ui/Card';
 import FadeIn from '../animations/FadeIn';
@@ -7,22 +7,14 @@ import FadeIn from '../animations/FadeIn';
 const Skills = () => {
   const skillCategories = [
     {
-      title: 'Proficient',
-      subtitle: 'Main skills I use daily',
-      skills: skills.proficient,
-      color: 'primary',
+      title: 'Skills',
+      subtitle: 'Programming languages and technologies',
+      items: skills,
     },
     {
-      title: 'Experienced',
-      subtitle: 'Used in multiple projects',
-      skills: skills.experienced,
-      color: 'secondary',
-    },
-    {
-      title: 'Currently Learning',
-      subtitle: 'Expanding my knowledge',
-      skills: skills.learning,
-      color: 'accent',
+      title: 'Frameworks',
+      subtitle: 'Frameworks I work with',
+      items: frameworks,
     },
   ];
 
@@ -58,9 +50,9 @@ const Skills = () => {
                 </div>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                  {category.skills.map((skill, index) => (
+                  {category.items.map((item, index) => (
                     <motion.div
-                      key={skill.name}
+                      key={item.name}
                       initial={{ opacity: 0, scale: 0.9 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true, margin: '-50px' }}
@@ -71,9 +63,9 @@ const Skills = () => {
                       }}
                     >
                       <SkillCard
-                        name={skill.name}
-                        icon={skill.icon}
-                        color={skill.color}
+                        name={item.name}
+                        icon={item.icon}
+                        color={item.color}
                       />
                     </motion.div>
                   ))}

@@ -1,12 +1,15 @@
 // src/utils/constants.js
 
+// Get base URL for assets (handles GitHub Pages base path)
+const BASE_URL = import.meta.env.BASE_URL;
+
 export const personalInfo = {
   name: "Ahmad Syukri Sazali",
   title: "Software Developer",
   email: "ahmdsyukri09@gmail.com",
   location: "Shah Alam, Malaysia",
-  avatar: "/avatar.jpg",
-  resume: "/resume.pdf",
+  avatar: `${BASE_URL}avatar.jpg`,
+  resume: `${BASE_URL}resume.pdf`,
   bio: {
     para1: "Hi! I'm [Name], a software developer with 9 months of hands-on experience building web applications and mobile apps. I specialize in React, Node.js, and Flutter and love creating products that solve real problems.",
     para2: "I focus on writing clean, maintainable code and building user-friendly interfaces. Whether it's a complex web application or a simple landing page, I approach every project with attention to detail and a commitment to quality.",
@@ -60,7 +63,7 @@ export const projects = [
     title: "LifeBalance Tracker",
     subtitle: "Personal wellness and finance management app",
     description: "A Flutter mobile application that helps users build better eating habits, stay hydrated, and manage their monthly budget effectively. Features include meal tracking, water intake monitoring, expense logging, and budget allocation with visual insights.",
-    image: "/projects/lifebalance.png",
+    image: `${BASE_URL}projects/lifebalance.png`,
     tags: ["Flutter", "SQLite", "Provider", "Material Design"],
     liveUrl: "https://play.google.com/store/apps/details?id=your.app",
     githubUrl: "https://github.com/yourusername/lifebalance",
@@ -72,7 +75,7 @@ export const projects = [
     title: "E-Commerce Platform",
     subtitle: "Full-stack online shopping experience",
     description: "A complete e-commerce solution with user authentication, product catalog, shopping cart, and payment integration. Built with React frontend and Node.js backend with MongoDB database.",
-    image: "/projects/ecommerce.png",
+    image: `${BASE_URL}projects/ecommerce.png`,
     tags: ["React", "Node.js", "MongoDB", "Stripe"],
     liveUrl: "https://your-ecommerce-demo.com",
     githubUrl: "https://github.com/yourusername/ecommerce",
@@ -84,7 +87,7 @@ export const projects = [
     title: "Task Management Dashboard",
     subtitle: "Kanban-style project management tool",
     description: "A drag-and-drop task management application inspired by Trello. Features include board creation, task cards, labels, due dates, and team collaboration tools.",
-    image: "/projects/taskmanager.png",
+    image: `${BASE_URL}projects/taskmanager.png`,
     tags: ["React", "Redux", "Firebase", "DnD"],
     liveUrl: "https://your-taskmanager-demo.com",
     githubUrl: "https://github.com/yourusername/taskmanager",

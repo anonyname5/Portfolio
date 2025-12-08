@@ -135,10 +135,10 @@ npm install -D gh-pages
 }
 ```
 
-3. Update `vite.config.js`:
+3. Update `vite.config.js` with your exact repository name:
 ```js
 export default defineConfig({
-  base: '/your-repo-name/',
+  base: '/your-repo-name/',  // ⚠️ Must match your GitHub repository name exactly
   // ...
 })
 ```
@@ -147,6 +147,20 @@ export default defineConfig({
 ```bash
 npm run deploy
 ```
+
+**⚠️ Important:** 
+- The `base` path in `vite.config.js` must match your GitHub repository name exactly (case-sensitive)
+- If your repo is `Portfolio`, use `base: '/Portfolio/'`
+- If your repo is `portfolio`, use `base: '/portfolio/'`
+- After deployment, your site will be at: `https://yourusername.github.io/your-repo-name/`
+
+**Troubleshooting Blank Page:**
+1. Verify the `base` path matches your repository name exactly
+2. Rebuild: `npm run build`
+3. Check the browser console for errors (F12 → Console tab)
+4. Ensure you're accessing the correct URL: `https://username.github.io/repo-name/` (not just `username.github.io`)
+5. Clear browser cache and try again
+6. Verify the `dist` folder was created and contains `index.html`
 
 ### Other Platforms
 

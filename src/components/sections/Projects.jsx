@@ -13,11 +13,11 @@ const Projects = () => {
     <section id="projects" className="section">
       <div className="container-custom">
         <FadeIn direction="up">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
+          <div className="text-center mb-10 sm:mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-3 sm:mb-4">
               My <span className="gradient-text">Projects</span>
             </h2>
-            <p className="text-lg text-gray-600 dark:text-dark-400 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 dark:text-dark-400 max-w-2xl mx-auto px-4">
               A collection of projects I've built. Each one represents a learning journey and a solution to a real problem.
             </p>
           </div>
@@ -38,7 +38,7 @@ const Projects = () => {
               },
             },
           }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12"
         >
           {allProjects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />

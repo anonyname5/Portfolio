@@ -101,8 +101,8 @@ export const experience = [
     id: 1,
     type: "work",
     title: "Junior Software Developer",
-    company: "Tech Company Name",
-    location: "Kuala Lumpur, Malaysia",
+    company: "HPCS Sdn Bhd",
+    location: "Shah Alam, Malaysia",
     period: "March 2024 - Present",
     description: "Developing web applications using React and Node.js. Collaborated with senior developers on feature implementation and bug fixes. Participated in code reviews and sprint planning meetings.",
     achievements: [
@@ -114,16 +114,11 @@ export const experience = [
   {
     id: 2,
     type: "education",
-    title: "Bachelor of Computer Science",
-    company: "University Name",
-    location: "Malaysia",
-    period: "2020 - 2024",
-    description: "Graduated with First Class Honours. Specialized in Software Engineering and Web Technologies.",
-    achievements: [
-      "GPA: 3.8/4.0",
-      "Dean's List (3 semesters)",
-      "Final Year Project: Award Winner"
-    ]
+    title: "Bachelor of Computer Science (Netcentric)",
+    company: "Universiti Teknologi MARA",
+    location: "Shah Alam, Malaysia",
+    period: "2023 - 2025",
+    description: "Graduated with Second Class Honours (Upper Division). Specialized in Software Engineering and Web Technologies.",
   },
 ];
 

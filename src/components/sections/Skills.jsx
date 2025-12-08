@@ -30,11 +30,11 @@ const Skills = () => {
     <section id="skills" className="section bg-gray-50/50 dark:bg-dark-50/50">
       <div className="container-custom">
         <FadeIn direction="up">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
+          <div className="text-center mb-10 sm:mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-3 sm:mb-4">
               My <span className="gradient-text">Skills</span>
             </h2>
-            <p className="text-lg text-gray-600 dark:text-dark-400 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 dark:text-dark-400 max-w-2xl mx-auto px-4">
               Technologies and tools I work with to bring ideas to life.
             </p>
           </div>

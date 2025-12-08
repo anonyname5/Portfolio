@@ -31,10 +31,10 @@ const Hero = () => {
       {/* Floating Orbs - Monochrome Gray Theme (Premium & Minimalist) */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          className="absolute top-20 left-10 w-64 h-64 md:w-72 md:h-72 bg-primary-500 rounded-full mix-blend-multiply filter blur-xl opacity-15 dark:opacity-8"
+          className="absolute top-20 left-4 sm:left-10 w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 bg-primary-500 rounded-full mix-blend-multiply filter blur-xl opacity-15 dark:opacity-8"
           animate={{
-            x: [0, 80, 0],
-            y: [0, -40, 0],
+            x: [0, 40, 0],
+            y: [0, -20, 0],
           }}
           transition={{
             duration: 25,
@@ -45,10 +45,10 @@ const Hero = () => {
           style={{ willChange: 'transform' }}
         />
         <motion.div
-          className="absolute top-40 right-10 w-64 h-64 md:w-72 md:h-72 bg-secondary-500 rounded-full mix-blend-multiply filter blur-xl opacity-15 dark:opacity-8"
+          className="absolute top-40 right-4 sm:right-10 w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 bg-secondary-500 rounded-full mix-blend-multiply filter blur-xl opacity-15 dark:opacity-8"
           animate={{
-            x: [0, -80, 0],
-            y: [0, 40, 0],
+            x: [0, -40, 0],
+            y: [0, 20, 0],
           }}
           transition={{
             duration: 20,
@@ -59,10 +59,10 @@ const Hero = () => {
           style={{ willChange: 'transform' }}
         />
         <motion.div
-          className="absolute bottom-20 left-1/2 w-56 h-56 md:w-64 md:h-64 bg-accent-500 rounded-full mix-blend-multiply filter blur-xl opacity-12 dark:opacity-6"
+          className="absolute bottom-20 left-1/2 w-40 h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 bg-accent-500 rounded-full mix-blend-multiply filter blur-xl opacity-12 dark:opacity-6"
           animate={{
-            x: [0, 50, 0],
-            y: [0, -60, 0],
+            x: [0, 25, 0],
+            y: [0, -30, 0],
           }}
           transition={{
             duration: 22,
@@ -75,14 +75,14 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="container-custom relative z-10">
+      <div className="container-custom relative z-10 px-4 sm:px-6">
         <div className="text-center max-w-4xl mx-auto">
           {/* Greeting */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-lg md:text-xl text-primary-600 dark:text-primary-400 font-medium mb-4"
+            className="text-base sm:text-lg md:text-xl text-primary-600 dark:text-primary-400 font-medium mb-3 sm:mb-4"
           >
             Hi, my name is
           </motion.p>
@@ -92,7 +92,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold mb-4 sm:mb-6 px-2"
           >
             <span className="gradient-text">{personalInfo.name.split(' ')[0]}</span>
             <br />
@@ -106,7 +106,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-2xl md:text-3xl font-semibold text-gray-700 dark:text-dark-400 mb-6"
+            className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-700 dark:text-dark-400 mb-4 sm:mb-6 px-2"
           >
             {personalInfo.title}
           </motion.p>
@@ -116,7 +116,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="min-h-[60px] md:min-h-[80px] mb-8"
+            className="min-h-[50px] sm:min-h-[60px] md:min-h-[80px] mb-6 sm:mb-8 px-2"
           >
             <TypeAnimation
               sequence={[
@@ -128,7 +128,7 @@ const Hero = () => {
               wrapper="span"
               speed={50}
               repeat={Infinity}
-              className="text-xl md:text-2xl lg:text-3xl font-medium text-gray-600 dark:text-dark-500"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-gray-600 dark:text-dark-500"
             />
           </motion.div>
 
@@ -137,7 +137,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12 px-4"
           >
             <Button
               variant="primary"
@@ -164,7 +164,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex justify-center gap-6 mb-16"
+            className="flex justify-center gap-4 sm:gap-6 mb-12 sm:mb-16"
           >
             {socialIcons.map(({ icon: Icon, href, label }) => (
               <motion.a

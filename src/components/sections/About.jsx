@@ -14,17 +14,17 @@ const About = () => {
     <section id="about" className="section">
       <div className="container-custom">
         <FadeIn direction="up">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
+          <div className="text-center mb-10 sm:mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-3 sm:mb-4">
               <span className="gradient-text">About</span> Me
             </h2>
-            <p className="text-lg text-gray-600 dark:text-dark-400 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 dark:text-dark-400 max-w-2xl mx-auto px-4">
               Get to know more about my background, experience, and what drives me as a developer.
             </p>
           </div>
         </FadeIn>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center mb-10 sm:mb-12 md:mb-16">
           {/* Avatar/Image */}
           <FadeIn direction="left" delay={0.2}>
             <div className="relative">
@@ -85,30 +85,30 @@ const About = () => {
 
           {/* Bio Text */}
           <FadeIn direction="right" delay={0.3}>
-            <div className="space-y-6">
+            <div className="space-y-5 sm:space-y-6">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-dark-700 mb-4">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-dark-700 mb-3 sm:mb-4">
                   Who I Am
                 </h3>
-                <p className="text-gray-600 dark:text-dark-400 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-dark-400 leading-relaxed">
                   {personalInfo.bio.para1}
                 </p>
               </div>
 
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-dark-700 mb-4">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-dark-700 mb-3 sm:mb-4">
                   What I Do
                 </h3>
-                <p className="text-gray-600 dark:text-dark-400 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-dark-400 leading-relaxed">
                   {personalInfo.bio.para2}
                 </p>
               </div>
 
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-dark-700 mb-4">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-dark-700 mb-3 sm:mb-4">
                   My Journey
                 </h3>
-                <p className="text-gray-600 dark:text-dark-400 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-dark-400 leading-relaxed">
                   {personalInfo.bio.para3}
                 </p>
               </div>
@@ -129,7 +129,7 @@ const About = () => {
 
         {/* Stats Cards */}
         <FadeIn direction="up" delay={0.3}>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             {personalInfo.stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -140,7 +140,7 @@ const About = () => {
               >
                 <Card variant="strong" className="text-center">
                   <motion.div
-                    className="text-4xl md:text-5xl font-extrabold gradient-text mb-2"
+                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold gradient-text mb-1 sm:mb-2"
                     initial={{ scale: 0.8 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
@@ -152,7 +152,7 @@ const About = () => {
                   >
                     {stat.value}
                   </motion.div>
-                  <p className="text-sm md:text-base text-gray-600 dark:text-dark-400 font-medium">
+                  <p className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-dark-400 font-medium">
                     {stat.label}
                   </p>
                 </Card>

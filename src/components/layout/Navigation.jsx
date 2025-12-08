@@ -28,21 +28,47 @@ const Navigation = () => {
 
   const handleNavClick = (href) => {
     const sectionId = href.replace('#', '');
-    smoothScrollTo(sectionId);
+    // Close mobile menu first
     setIsMobileMenuOpen(false);
+    // Small delay to ensure menu closes before scrolling
+    setTimeout(() => {
+      smoothScrollTo(sectionId);
+    }, 100);
   };
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMobileMenuOpen && !event.target.closest('nav')) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener('click', handleClickOutside);
+      // Prevent body scroll when menu is open
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
 
   return (
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'py-3' : 'py-4'
+        scrolled ? 'py-2 md:py-3' : 'py-3 md:py-4'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
       <div className="container-custom">
-        <div className={`glass-strong rounded-2xl px-6 py-4 ${
+        <div className={`glass-strong rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 ${
           scrolled ? 'shadow-lg' : 'shadow-md'
         }`}>
           <div className="flex items-center justify-between">
@@ -53,7 +79,7 @@ const Navigation = () => {
                 e.preventDefault();
                 handleNavClick('#home');
               }}
-              className="text-2xl font-bold gradient-text"
+              className="text-xl md:text-2xl font-bold gradient-text"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -94,13 +120,17 @@ const Navigation = () => {
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center gap-4">
+            <div className="md:hidden flex items-center gap-3">
               <ThemeToggle />
               <motion.button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2 rounded-lg glass-light dark:glass-dark border border-white/20"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsMobileMenuOpen(!isMobileMenuOpen);
+                }}
+                className="p-2 rounded-lg glass-light dark:glass-dark border border-white/20 z-10 relative"
                 whileTap={{ scale: 0.95 }}
                 aria-label="Toggle menu"
+                aria-expanded={isMobileMenuOpen}
               >
                 {isMobileMenuOpen ? (
                   <X className="w-6 h-6 text-gray-900 dark:text-dark-600" />
@@ -119,9 +149,10 @@ const Navigation = () => {
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.3 }}
-                className="md:hidden mt-4 pt-4 border-t border-white/20"
+                className="md:hidden mt-4 pt-4 border-t border-white/20 overflow-hidden"
+                onClick={(e) => e.stopPropagation()}
               >
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2 pb-2">
                   {navLinks.map((link) => {
                     const isActive = activeSection === link.href.replace('#', '');
                     return (
@@ -130,14 +161,16 @@ const Navigation = () => {
                         href={link.href}
                         onClick={(e) => {
                           e.preventDefault();
+                          e.stopPropagation();
                           handleNavClick(link.href);
                         }}
-                        className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                        className={`px-4 py-3 rounded-lg text-base font-medium transition-colors touch-manipulation ${
                           isActive
                             ? 'bg-primary-500/20 text-primary-600 dark:text-primary-400'
-                            : 'text-gray-700 dark:text-dark-400 hover:bg-white/10'
+                            : 'text-gray-700 dark:text-dark-400 hover:bg-white/10 active:bg-white/20'
                         }`}
                         whileHover={{ x: 4 }}
+                        whileTap={{ scale: 0.98 }}
                       >
                         {link.name}
                       </motion.a>

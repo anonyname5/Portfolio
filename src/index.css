@@ -45,6 +45,20 @@
   #root {
     min-height: 100vh;
     width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Better touch targets for mobile */
+  @media (max-width: 768px) {
+    a, button {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+
+  /* Prevent horizontal scroll on mobile */
+  body {
+    overflow-x: hidden;
   }
 
   /* Glass Effect Utilities */
@@ -106,15 +120,21 @@
 
 @layer components {
   .container-custom {
-    @apply w-full mx-auto px-4 md:px-8 lg:px-16;
+    @apply w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-16;
     max-width: 1536px;
   }
 
   .section {
-    @apply py-16 md:py-24 lg:py-32;
+    @apply py-12 sm:py-16 md:py-24 lg:py-32;
   }
 
   .gradient-text {
     @apply bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-500 bg-clip-text text-transparent;
+  }
+
+  /* Touch manipulation for better mobile performance */
+  .touch-manipulation {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
 }

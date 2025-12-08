@@ -127,15 +127,16 @@ const Navigation = () => {
                   e.stopPropagation();
                   setIsMobileMenuOpen(!isMobileMenuOpen);
                 }}
-                className="p-2 rounded-lg glass-light dark:glass-dark border border-white/20 z-10 relative"
-                whileTap={{ scale: 0.95 }}
+                className="p-3 rounded-full glass-strong border border-white/30 shadow-lg hover:shadow-xl transition-all group z-10 relative"
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.9 }}
                 aria-label="Toggle menu"
                 aria-expanded={isMobileMenuOpen}
               >
                 {isMobileMenuOpen ? (
-                  <X className="w-6 h-6 text-gray-900 dark:text-dark-600" />
+                  <X className="w-5 h-5 text-primary-600 dark:text-primary-400 group-hover:text-primary-700 dark:group-hover:text-primary-300 transition-colors" />
                 ) : (
-                  <Menu className="w-6 h-6 text-gray-900 dark:text-dark-600" />
+                  <Menu className="w-5 h-5 text-primary-600 dark:text-primary-400 group-hover:text-primary-700 dark:group-hover:text-primary-300 transition-colors" />
                 )}
               </motion.button>
             </div>

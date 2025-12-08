@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>Your Name - Software Developer Portfolio</title>
+    <meta name="title" content="Your Name - Software Developer Portfolio" />
+    <meta name="description" content="Software Developer specializing in React, Node.js, and Flutter. View my projects and get in touch for collaboration." />
+    <meta name="keywords" content="software developer, web developer, React, Node.js, Flutter, portfolio" />
+    <meta name="author" content="Your Name" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourportfolio.com/" />
+    <meta property="og:title" content="Your Name - Software Developer Portfolio" />
+    <meta property="og:description" content="Software Developer specializing in React, Node.js, and Flutter." />
+    <meta property="og:image" content="https://yourportfolio.com/preview-image.jpg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://yourportfolio.com/" />
+    <meta property="twitter:title" content="Your Name - Software Developer Portfolio" />
+    <meta property="twitter:description" content="Software Developer specializing in React, Node.js, and Flutter." />
+    <meta property="twitter:image" content="https://yourportfolio.com/preview-image.jpg" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  </head>
+  <body>
+    <script>
+      // Apply theme immediately to prevent flash
+      (function() {
+        try {
+          const theme = localStorage.getItem('theme') || 
+            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

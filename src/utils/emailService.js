@@ -59,7 +59,7 @@ export const sendEmail = async (formData) => {
       email: formData.email.trim(),
       message: formData.message.trim(),
       time: new Date().toLocaleString(), // Current date and time
-      title: `Contact Form Submission from ${formData.name.trim()}`, // Email subject/title
+      title: `Form Submission from ${formData.name.trim()}`, // Email subject/title
     };
 
     // Send email via EmailJS

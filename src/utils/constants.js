@@ -96,13 +96,13 @@ export const experience = [
   {
     id: 1,
     type: "work",
-    title: "Junior Software Developer",
+    title: "Junior Software Developer (Full Stack)",
     company: "HPCS Sdn Bhd",
-    location: "Shah Alam, Malaysia",
-    period: "March 2024 - Present",
-    description: "Developing web applications using React and Node.js. Collaborated with senior developers on feature implementation and bug fixes. Participated in code reviews and sprint planning meetings.",
+    location: "Alam Budiman, Malaysia",
+    period: "March 2025 - Present",
+    description: "Currently working as a Junior Software Developer at HPCS Sdn Bhd, developing Billing System for Indah Water Konsortium Sdn Bhd using .Net for Backend and React for Frontend. Collaborated with senior developers on feature implementation and bug fixes. Participated in development, enhancement and bug fixes.",
     achievements: [
-      "Built 5+ features for main product",
+      "Built a excel report comparison tool for Indah Water Konsortium Sdn Bhd",
       "Reduced page load time by 30%",
       "Mentored 2 interns"
     ]

@@ -1,13 +1,24 @@
 import { motion } from 'framer-motion';
 import { Github } from 'lucide-react';
+import { useState, useCallback } from 'react';
 import { projects, socialLinks } from '../../utils/constants';
 import ProjectCard from '../ui/ProjectCard';
+import ImageModal from '../ui/ImageModal';
 import FadeIn from '../animations/FadeIn';
 import Button from '../ui/Button';
 
 const Projects = () => {
   const featuredProjects = projects.filter((p) => p.featured);
   const allProjects = projects;
+  const [modalState, setModalState] = useState({ isOpen: false, imageSrc: '', imageAlt: '' });
+
+  const handleImageClick = useCallback((imageSrc, imageAlt) => {
+    setModalState({ isOpen: true, imageSrc, imageAlt });
+  }, []);
+
+  const handleCloseModal = useCallback(() => {
+    setModalState({ isOpen: false, imageSrc: '', imageAlt: '' });
+  }, []);
 
   return (
     <section id="projects" className="section">
@@ -41,7 +52,12 @@ const Projects = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12"
         >
           {allProjects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+            <ProjectCard 
+              key={project.id} 
+              project={project} 
+              index={index} 
+              onImageClick={handleImageClick}
+            />
           ))}
         </motion.div>
 
@@ -60,6 +76,14 @@ const Projects = () => {
           </div>
         </FadeIn>
       </div>
+
+      {/* Image Modal - Rendered at root level via Portal */}
+      <ImageModal
+        isOpen={modalState.isOpen}
+        onClose={handleCloseModal}
+        imageSrc={modalState.imageSrc}
+        imageAlt={modalState.imageAlt}
+      />
     </section>
   );
 };

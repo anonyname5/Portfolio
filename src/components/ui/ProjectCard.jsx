@@ -1,8 +1,16 @@
 import { motion } from 'framer-motion';
-import { Github, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink, ZoomIn } from 'lucide-react';
+import { useCallback } from 'react';
 import Button from './Button';
 
-const ProjectCard = ({ project, index }) => {
+const ProjectCard = ({ project, index, onImageClick }) => {
+  const handleOpenModal = useCallback((e) => {
+    e.stopPropagation();
+    if (onImageClick && project.image) {
+      onImageClick(project.image, project.title);
+    }
+  }, [onImageClick, project]);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -16,11 +24,17 @@ const ProjectCard = ({ project, index }) => {
         {/* Project Image/Thumbnail */}
         <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary-400 to-secondary-500">
           {project.image ? (
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-            />
+            <div
+              className="w-full h-full cursor-pointer"
+              onClick={handleOpenModal}
+            >
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
+            </div>
           ) : (
             <div className="w-full h-full flex items-center justify-center">
               <div className={`bg-gradient-to-br ${project.gradient} w-full h-full flex items-center justify-center`}>
@@ -31,16 +45,28 @@ const ProjectCard = ({ project, index }) => {
             </div>
           )}
           {/* Overlay on hover */}
-          <div className="absolute inset-0 bg-primary-500/0 group-hover:bg-primary-500/20 transition-all duration-300 flex items-center justify-center gap-4">
+          <div className="absolute inset-0 bg-primary-500/0 group-hover:bg-primary-500/20 transition-all duration-300 flex items-center justify-center gap-4 pointer-events-none">
+            {project.image && (
+              <motion.div
+                className="opacity-0 group-hover:opacity-100 p-3 rounded-full bg-white/90 dark:bg-dark-800/90 backdrop-blur-sm pointer-events-auto cursor-pointer"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.2 }}
+                onClick={handleOpenModal}
+              >
+                <ZoomIn className="w-5 h-5 text-primary-600 dark:text-primary-400" />
+              </motion.div>
+            )}
             {project.liveUrl && (
               <motion.a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="opacity-0 group-hover:opacity-100 p-3 rounded-full bg-white/90 dark:bg-dark-800/90 backdrop-blur-sm"
+                className="opacity-0 group-hover:opacity-100 p-3 rounded-full bg-white/90 dark:bg-dark-800/90 backdrop-blur-sm pointer-events-auto"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.2 }}
+                onClick={(e) => e.stopPropagation()}
               >
                 <ExternalLink className="w-5 h-5 text-primary-600 dark:text-primary-400" />
               </motion.a>
@@ -50,10 +76,11 @@ const ProjectCard = ({ project, index }) => {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="opacity-0 group-hover:opacity-100 p-3 rounded-full bg-white/90 dark:bg-dark-800/90 backdrop-blur-sm"
+                className="opacity-0 group-hover:opacity-100 p-3 rounded-full bg-white/90 dark:bg-dark-800/90 backdrop-blur-sm pointer-events-auto"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.2 }}
+                onClick={(e) => e.stopPropagation()}
               >
                 <Github className="w-5 h-5 text-primary-600 dark:text-primary-400" />
               </motion.a>
@@ -70,7 +97,7 @@ const ProjectCard = ({ project, index }) => {
             <p className="text-sm text-primary-600 dark:text-primary-400 font-medium mb-3">
               {project.subtitle}
             </p>
-            <p className="text-gray-600 dark:text-dark-400 text-sm leading-relaxed">
+            <p className="text-gray-600 dark:text-dark-400 text-sm leading-relaxed text-justify">
               {project.description}
             </p>
           </div>
@@ -114,6 +141,7 @@ const ProjectCard = ({ project, index }) => {
           </div>
         </div>
       </div>
+
     </motion.div>
   );
 };

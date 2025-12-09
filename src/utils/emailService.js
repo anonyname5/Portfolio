@@ -10,6 +10,15 @@ export const isEmailConfigured = () => {
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
+    // Debug logging (remove in production)
+    if (import.meta.env.DEV) {
+        console.log('EmailJS Config Check:', {
+            serviceId: serviceId ? '✓ Set' : '✗ Missing',
+            templateId: templateId ? '✓ Set' : '✗ Missing',
+            publicKey: publicKey ? '✓ Set' : '✗ Missing',
+        });
+    }
+
   return !!(serviceId && templateId && publicKey);
 };
 
@@ -44,16 +53,20 @@ export const sendEmail = async (formData) => {
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
+    // Prepare template parameters matching your EmailJS template
+    const templateParams = {
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      message: formData.message.trim(),
+      time: new Date().toLocaleString(), // Current date and time
+      title: `Contact Form Submission from ${formData.name.trim()}`, // Email subject/title
+    };
+
     // Send email via EmailJS
     const response = await emailjs.send(
       serviceId,
       templateId,
-      {
-        from_name: formData.name.trim(),
-        from_email: formData.email.trim(),
-        message: formData.message.trim(),
-        to_name: 'Portfolio Owner', // You can customize this
-      },
+      templateParams,
       publicKey
     );
 

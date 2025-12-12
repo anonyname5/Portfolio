@@ -139,7 +139,7 @@ export const experience = [
     company: "Universiti Teknologi MARA",
     location: "Shah Alam, Malaysia",
     period: "2023 - 2025",
-    description: "Graduated with Second Class Honours (Upper Division). Specialized in Software Engineering and Web Technologies.",
+    description: "Currently working full-time while awaiting graduation ceremony.",
   },
 ];
 

@@ -2,16 +2,17 @@
 
 // Get base URL for assets (handles GitHub Pages base path)
 const BASE_URL = import.meta.env.BASE_URL;
+const NAME = "Ahmad Syukri Sazali";
 
 export const personalInfo = {
-  name: "Ahmad Syukri Sazali",
+  name: NAME,
   title: "Software Developer",
   email: "ahmdsyukri09@gmail.com",
   location: "Shah Alam, Malaysia",
   avatar: `${BASE_URL}avatar.jpg`,
   resume: `${BASE_URL}resume.pdf`,
   bio: {
-    para1: "Hi! I'm [Name], a software developer with 9 months of hands-on experience building web applications and mobile apps. I specialize in React, Node.js, and Flutter and love creating products that solve real problems.",
+    para1: `Hi! I'm ${NAME}, a junior software developer with 9 months of hands-on experience building web applications and mobile apps. I specialize in React, Node.js, and Flutter and love creating products that solve real problems.`,
     para2: "I focus on writing clean, maintainable code and building user-friendly interfaces. Whether it's a complex web application or a simple landing page, I approach every project with attention to detail and a commitment to quality.",
     para3: "When I'm not coding, you'll find me learning new technologies and contributing to open source. I'm always looking to grow as a developer and collaborate on interesting projects.",
   },
@@ -59,36 +60,60 @@ export const projects = [
     title: "LifeBalance Tracker",
     subtitle: "Personal wellness and finance management app",
     description: "A Flutter mobile application that helps users build better eating habits, stay hydrated, and manage their monthly budget effectively. Features include meal tracking, water intake monitoring, expense logging, and budget allocation with visual insights.",
-    image: `${BASE_URL}projects/lifebalance.png`,
+    image: `${BASE_URL}LifeBalance.png`,
     tags: ["Flutter", "SQLite", "Provider", "Material Design"],
-    liveUrl: "https://play.google.com/store/apps/details?id=your.app",
-    githubUrl: "https://github.com/yourusername/lifebalance",
+    liveUrl: "",
+    githubUrl: "https://github.com/anonyname5/lifebalance",
     featured: true,
     gradient: "from-purple-500 to-pink-500"
   },
   {
     id: 2,
-    title: "E-Commerce Platform",
-    subtitle: "Full-stack online shopping experience",
-    description: "A complete e-commerce solution with user authentication, product catalog, shopping cart, and payment integration. Built with React frontend and Node.js backend with MongoDB database.",
-    image: `${BASE_URL}projects/ecommerce.png`,
-    tags: ["React", "Node.js", "MongoDB", "Stripe"],
-    liveUrl: "https://your-ecommerce-demo.com",
-    githubUrl: "https://github.com/yourusername/ecommerce",
+    title: "Crime Prediction",
+    subtitle: "Data-driven crime analysis and prediction system",
+    description: "A machine learning-based application that analyzes crime data patterns and provides predictive insights. Built to help law enforcement and city planners make data-driven decisions for public safety.",
+    image: `${BASE_URL}crime.png`,
+    tags: ["Python", "Machine Learning", "Data Analysis", "Pandas"],
+    liveUrl: "",
+    githubUrl: "https://github.com/anonyname5/crime-prediction",
     featured: true,
-    gradient: "from-blue-500 to-cyan-500"
+    gradient: "from-red-500 to-orange-500"
   },
   {
     id: 3,
-    title: "Task Management Dashboard",
-    subtitle: "Kanban-style project management tool",
-    description: "A drag-and-drop task management application inspired by Trello. Features include board creation, task cards, labels, due dates, and team collaboration tools.",
-    image: `${BASE_URL}projects/taskmanager.png`,
-    tags: ["React", "Redux", "Firebase", "DnD"],
-    liveUrl: "https://your-taskmanager-demo.com",
-    githubUrl: "https://github.com/yourusername/taskmanager",
+    title: "FoodieHub",
+    subtitle: "Restaurant and food review platform",
+    description: "A comprehensive food review application where users can discover restaurants, read reviews, rate their dining experiences, and share food photos. Features include location-based search, rating system, and social interactions.",
+    image: `${BASE_URL}FoodieHub.png`,
+    tags: ["React", "Node.js", "MongoDB", "Express"],
+    liveUrl: "",
+    githubUrl: "https://github.com/anonyname5/food-review",
+    featured: true,
+    gradient: "from-yellow-500 to-amber-500"
+  },
+  {
+    id: 4,
+    title: "E-Commerce Platform",
+    subtitle: "Full-stack online shopping experience",
+    description: "A complete e-commerce solution with user authentication, product catalog, shopping cart, and payment integration. Built with React frontend and Node.js backend with MongoDB database.",
+    image: `${BASE_URL}Ecommerce.png`,
+    tags: ["React", "Node.js", "MongoDB", "Stripe"],
+    liveUrl: "",
+    githubUrl: "https://github.com/anonyname5/ecommerce",
     featured: false,
-    gradient: "from-green-500 to-emerald-500"
+    gradient: "from-blue-500 to-cyan-500"
+  },
+  {
+    id: 5,
+    title: "TapNWear - QR-Based Shopping System",
+    subtitle: "Blueprint project for seamless retail shopping experience",
+    description: "A blueprint project for a QR code-based shopping system. Customers scan QR codes from product tags to automatically add items to their cart. Features include online checkout with card and online banking payment options. After successful payment, customers receive a QR code to scan at the exit gate to complete their shopping experience.",
+    image: `${BASE_URL}TapNWear.png`,
+    tags: ["QR Code", "E-Commerce", "Payment Gateway", "Blueprint"],
+    liveUrl: "",
+    githubUrl: "https://github.com/anonyname5/TapNWear",
+    featured: false,
+    gradient: "from-indigo-500 to-purple-500"
   },
 ];
 
@@ -100,9 +125,9 @@ export const experience = [
     company: "HPCS Sdn Bhd",
     location: "Alam Budiman, Malaysia",
     period: "March 2025 - Present",
-    description: "Currently working as a Junior Software Developer at HPCS Sdn Bhd, developing Billing System for Indah Water Konsortium Sdn Bhd using .Net for Backend and React for Frontend. Collaborated with senior developers on feature implementation and bug fixes. Participated in development, enhancement and bug fixes.",
+    description: "Currently working as a Junior Software Developer at HPCS Sdn Bhd, contributing to the IWK Billing System with the HPCS team. Developing Billing System for Indah Water Konsortium Sdn Bhd using .Net for Backend and React for Frontend. Collaborated with senior developers on feature implementation and bug fixes. Participated in development, enhancement and bug fixes.",
     achievements: [
-      "Built a excel report comparison tool for Indah Water Konsortium Sdn Bhd",
+      "Built Comparison Tools: Report 15 - an excel report comparison tool for Indah Water Konsortium Sdn Bhd",
       "Reduced page load time by 30%",
       "Mentored 2 interns"
     ]

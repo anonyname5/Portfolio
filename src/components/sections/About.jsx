@@ -90,7 +90,7 @@ const About = () => {
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-dark-700 mb-3 sm:mb-4">
                   Who I Am
                 </h3>
-                <p className="text-sm sm:text-base text-gray-600 dark:text-dark-400 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-dark-400 leading-relaxed text-justify">
                   {personalInfo.bio.para1}
                 </p>
               </div>
@@ -99,7 +99,7 @@ const About = () => {
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-dark-700 mb-3 sm:mb-4">
                   What I Do
                 </h3>
-                <p className="text-sm sm:text-base text-gray-600 dark:text-dark-400 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-dark-400 leading-relaxed text-justify">
                   {personalInfo.bio.para2}
                 </p>
               </div>
@@ -108,7 +108,7 @@ const About = () => {
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-dark-700 mb-3 sm:mb-4">
                   My Journey
                 </h3>
-                <p className="text-sm sm:text-base text-gray-600 dark:text-dark-400 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-dark-400 leading-relaxed text-justify">
                   {personalInfo.bio.para3}
                 </p>
               </div>

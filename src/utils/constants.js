@@ -87,7 +87,7 @@ export const projects = [
     image: `${BASE_URL}FoodieHub.png`,
     tags: ["React", "Node.js", "MongoDB", "Express"],
     liveUrl: "",
-    githubUrl: "https://github.com/anonyname5/food-review",
+    githubUrl: "https://github.com/anonyname5/foodiehub",
     featured: true,
     gradient: "from-yellow-500 to-amber-500"
   },
@@ -99,7 +99,7 @@ export const projects = [
     image: `${BASE_URL}Ecommerce.png`,
     tags: ["React", "Node.js", "MongoDB", "Stripe"],
     liveUrl: "",
-    githubUrl: "https://github.com/anonyname5/ecommerce",
+    githubUrl: "https://github.com/anonyname5/E-Commerce",
     featured: false,
     gradient: "from-blue-500 to-cyan-500"
   },

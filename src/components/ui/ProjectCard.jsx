@@ -4,6 +4,8 @@ import { useCallback } from 'react';
 import Button from './Button';
 
 const ProjectCard = ({ project, index, onImageClick }) => {
+  const isComingSoon = project.id === 'coming-soon';
+
   const handleOpenModal = useCallback((e) => {
     e.stopPropagation();
     if (onImageClick && project.image) {
@@ -20,7 +22,11 @@ const ProjectCard = ({ project, index, onImageClick }) => {
       className="group"
       style={{ willChange: 'transform, opacity' }}
     >
-      <div className="glass-light dark:glass-dark border border-white/20 dark:border-white/10 rounded-2xl overflow-hidden hover:border-primary-400 dark:hover:border-primary-500 transition-all h-full flex flex-col">
+      <div className={`glass-light dark:glass-dark border rounded-2xl overflow-hidden transition-all h-full flex flex-col ${
+        isComingSoon
+          ? 'border-dashed border-primary-300/70 dark:border-primary-500/60 hover:border-primary-400 dark:hover:border-primary-400'
+          : 'border-white/20 dark:border-white/10 hover:border-primary-400 dark:hover:border-primary-500'
+      }`}>
         {/* Project Image/Thumbnail */}
         <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary-400 to-secondary-500">
           {project.image ? (
@@ -38,10 +44,15 @@ const ProjectCard = ({ project, index, onImageClick }) => {
           ) : (
             <div className="w-full h-full flex items-center justify-center">
               <div className={`bg-gradient-to-br ${project.gradient} w-full h-full flex items-center justify-center`}>
-                <span className="text-4xl font-bold text-white opacity-80">
-                  {project.title.charAt(0)}
+                <span className={`text-4xl font-bold text-white ${isComingSoon ? 'opacity-95' : 'opacity-80'}`}>
+                  {isComingSoon ? '+' : project.title.charAt(0)}
                 </span>
               </div>
+            </div>
+          )}
+          {isComingSoon && (
+            <div className="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide bg-white/90 text-black dark:bg-dark-800/90 dark:text-black">
+              Coming Soon
             </div>
           )}
           {/* Overlay on hover */}
@@ -91,7 +102,7 @@ const ProjectCard = ({ project, index, onImageClick }) => {
         {/* Project Content */}
         <div className="p-6 flex-grow flex flex-col">
           <div className="mb-4">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-dark-700 mb-2">
+            <h3 className={`text-xl font-bold mb-2 ${isComingSoon ? 'text-black dark:text-white' : 'text-gray-900 dark:text-dark-700'}`}>
               {project.title}
             </h3>
             <p className="text-sm text-primary-600 dark:text-primary-400 font-medium mb-3">
@@ -100,6 +111,11 @@ const ProjectCard = ({ project, index, onImageClick }) => {
             <p className="text-gray-600 dark:text-dark-400 text-sm leading-relaxed text-justify">
               {project.description}
             </p>
+            {isComingSoon && (
+              <p className="mt-3 text-sm font-medium text-primary-600 dark:text-primary-400">
+                Next showcase project is currently in progress.
+              </p>
+            )}
           </div>
 
           {/* Tech Stack Tags */}

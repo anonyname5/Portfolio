@@ -23,10 +23,10 @@ export const personalInfo = {
     "Turning ideas into reality, one line at a time"
   ],
   stats: [
-    { label: "Experience", value: "9+ Months" },
-    { label: "Projects Completed", value: "12+" },
+    { label: "Experience", value: "1 Year" },
+    { label: "Personal Projects Completed", value: "7+" },
     { label: "Technologies", value: "15+" },
-    { label: "GitHub Repos", value: "25+" }
+    { label: "GitHub Repos (Private/Public)", value: "25+" }
   ]
 };
 
@@ -44,7 +44,11 @@ export const skills = [
   { name: "PHP", icon: "php", color: "#777BB4" },
   { name: "C#", icon: "csharp", color: "#239120" },
   { name: "Python", icon: "python", color: "#3776AB" },
-  { name: "Dart", icon: "dart", color: "#0175C2" }
+  { name: "Dart", icon: "dart", color: "#0175C2" },
+  { name: "CI/CD", icon: "ci/cd", color: "#E34F26" },
+  { name: "Git", icon: "git", color: "#F05032" },
+  { name: "Docker", icon: "docker", color: "#2496ED" },
+  { name: "Vps", icon: "Vps", color: "#000000" },
 ];
 
 export const frameworks = [
@@ -128,18 +132,31 @@ export const experience = [
     description: "Currently working as a Junior Software Developer at HPCS Sdn Bhd, contributing to the IWK Billing System with the HPCS team. Developing Billing System for Indah Water Konsortium Sdn Bhd using .Net for Backend and React for Frontend. Collaborated with senior developers on feature implementation and bug fixes. Participated in development, enhancement and bug fixes.",
     achievements: [
       "Built Comparison Tools: Report 15 - an excel report comparison tool for Indah Water Konsortium Sdn Bhd",
-      "Reduced page load time by 30%",
-      "Mentored 2 interns"
+      "Build a full piplined for End Of Month Data Processing and reduce 50% of completion time"
     ]
   },
   {
     id: 2,
     type: "education",
     title: "Bachelor of Computer Science (Netcentric)",
-    company: "Universiti Teknologi MARA",
+    company: "Universiti Teknologi MARA Campus Shah Alam",
     location: "Shah Alam, Malaysia",
     period: "2023 - 2025",
-    description: "Currently working full-time while awaiting graduation ceremony.",
+    achievements: [
+      "GPA: 3.0/4.0",
+    ]
+  },
+  {
+    id: 2,
+    type: "education",
+    title: "Diploma in Computer Science",
+    company: "Universiti Teknologi MARA Campus Machang",
+    location: "Machang, Kelantan",
+    period: "2021 - 2023",
+    achievements: [
+      "GPA: 3.3/4.0",
+      "Dean's List (Semester 5)",
+    ]
   },
 ];
 

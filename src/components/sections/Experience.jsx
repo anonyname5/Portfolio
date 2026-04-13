@@ -136,9 +136,9 @@ const Experience = () => {
                                 {item.achievements.map((achievement, idx) => (
                                   <li
                                     key={idx}
-                                    className="flex items-start gap-2 text-sm text-gray-600 dark:text-dark-400"
+                                    className="flex items-center gap-2 text-sm text-gray-600 dark:text-dark-400"
                                   >
-                                    <span className="text-primary-500 dark:text-primary-400 mt-1">
+                                    <span className="text-primary-500 dark:text-primary-400 leading-none">
                                       •
                                     </span>
                                     <span>{achievement}</span>

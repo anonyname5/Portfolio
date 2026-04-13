@@ -8,8 +8,19 @@ import FadeIn from '../animations/FadeIn';
 import Button from '../ui/Button';
 
 const Projects = () => {
-  const featuredProjects = projects.filter((p) => p.featured);
-  const allProjects = projects;
+  const comingSoonProject = {
+    id: 'coming-soon',
+    title: 'Coming Soon',
+    subtitle: 'More projects are on the way',
+    description: 'I am currently building new work to showcase here. Check back soon for the next project update.',
+    image: '',
+    tags: ['In Progress', 'New Idea'],
+    liveUrl: '',
+    githubUrl: '',
+    featured: false,
+    gradient: 'from-slate-500 to-gray-600',
+  };
+  const allProjects = [...projects, comingSoonProject];
   const [modalState, setModalState] = useState({ isOpen: false, imageSrc: '', imageAlt: '' });
 
   const handleImageClick = useCallback((imageSrc, imageAlt) => {

@@ -138,13 +138,6 @@ I've implemented the **Emerald/Teal** palette (Option 1) as it's very modern and
 ---
 
 ## How to Switch Palettes
-
-Just let me know which option you prefer (1-15), and I'll update the colors throughout your portfolio instantly!
-
-**Current:** Option 1 (Emerald/Teal) ✅
-
-### Quick Recommendations:
-- **Most Popular 2024:** Options 1, 5, 7, 8
 - **Most Professional:** Options 1, 4, 7, 13
 - **Most Creative:** Options 2, 5, 8, 14
 - **Most Unique:** Options 6, 9, 12, 15

@@ -2,23 +2,30 @@ import { motion } from 'framer-motion';
 import { useInView } from '../../hooks/useInView';
 
 const FadeIn = ({ children, delay = 0, direction = 'up', className = '' }) => {
-  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
+  // Trigger as soon as the element edges into the viewport (rootMargin) rather
+  // than waiting until 30% is visible — this removes the "content appears late"
+  // lag while scrolling.
+  const { ref, inView } = useInView({
+    threshold: 0,
+    rootMargin: '0px 0px -80px 0px',
+    triggerOnce: true,
+  });
 
   const variants = {
     up: {
-      hidden: { opacity: 0, y: 60 },
+      hidden: { opacity: 0, y: 40 },
       visible: { opacity: 1, y: 0 }
     },
     down: {
-      hidden: { opacity: 0, y: -60 },
+      hidden: { opacity: 0, y: -40 },
       visible: { opacity: 1, y: 0 }
     },
     left: {
-      hidden: { opacity: 0, x: -60 },
+      hidden: { opacity: 0, x: -40 },
       visible: { opacity: 1, x: 0 }
     },
     right: {
-      hidden: { opacity: 0, x: 60 },
+      hidden: { opacity: 0, x: 40 },
       visible: { opacity: 1, x: 0 }
     },
   };
@@ -30,7 +37,7 @@ const FadeIn = ({ children, delay = 0, direction = 'up', className = '' }) => {
       animate={inView ? 'visible' : 'hidden'}
       variants={variants[direction]}
       transition={{
-        duration: 0.5,
+        duration: 0.45,
         delay,
         ease: [0.22, 1, 0.36, 1]
       }}

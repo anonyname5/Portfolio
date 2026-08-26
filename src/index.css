@@ -5,19 +5,18 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    @apply transition-colors duration-300;
+  /* Performance: only smooth the theme-related props, and only on the
+     document-level surfaces. Applying transitions to every element ("*")
+     forces the browser to track transitions on the whole tree, which is a
+     major cause of scroll/animation jank. */
+  html,
+  body {
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  /* Performance optimizations */
   * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-
-  /* Optimize animations */
-  [data-animate] {
-    will-change: transform, opacity;
   }
 
   html {

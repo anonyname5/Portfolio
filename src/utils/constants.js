@@ -60,6 +60,20 @@ export const frameworks = [
 
 export const projects = [
   {
+    id: 6,
+    title: "Sistem Pengurusan Fatwa Selangor",
+    subtitle: "Fatwa management system for Selangor",
+    description: "An ongoing organization (company) project to digitize the end-to-end fatwa workflow for Selangor — from submission and review to deliberation, approval, and publication. Built for internal committee use with role-based access, structured record management, and searchable archives to replace manual, paper-based processes.",
+    image: "",
+    tags: ["Laravel 13", "MySQL", "PHP", "Enterprise"],
+    liveUrl: "",
+    githubUrl: "",
+    featured: true,
+    status: "ongoing",
+    organization: "HPCS Sdn Bhd",
+    gradient: "from-emerald-500 to-teal-600"
+  },
+  {
     id: 1,
     title: "LifeBalance Tracker",
     subtitle: "Personal wellness and finance management app",
@@ -143,7 +157,7 @@ export const experience = [
     location: "Shah Alam, Malaysia",
     period: "2023 - 2025",
     achievements: [
-      "GPA: 3.0/4.0",
+      "CGPA: 3.0",
     ]
   },
   {
@@ -154,7 +168,7 @@ export const experience = [
     location: "Machang, Kelantan",
     period: "2021 - 2023",
     achievements: [
-      "GPA: 3.3/4.0",
+      "CGPA: 3.3",
       "Dean's List (Semester 5)",
     ]
   },

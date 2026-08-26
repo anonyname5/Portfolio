@@ -1,18 +1,18 @@
 export const smoothScrollTo = (elementId) => {
   const element = document.getElementById(elementId);
-  if (element) {
-    // Get navbar height dynamically (responsive)
-    const navbar = document.querySelector('nav');
-    const navbarHeight = navbar ? navbar.offsetHeight + 20 : 100;
-    
-    const elementPosition = element.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+  if (!element) return;
 
-    // Use smooth scroll with proper offset for mobile
-    window.scrollTo({
-      top: Math.max(0, offsetPosition),
-      behavior: 'smooth'
-    });
-  }
+  // Offset for the fixed navbar plus a small gap, so the section's content
+  // (heading included) sits fully below the bar instead of being clipped.
+  const navbar = document.querySelector('nav');
+  const navbarHeight = navbar ? navbar.offsetHeight : 80;
+  const gap = 24;
+
+  const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+  const offsetPosition = elementPosition - navbarHeight - gap;
+
+  window.scrollTo({
+    top: Math.max(0, offsetPosition),
+    behavior: 'smooth',
+  });
 };
-

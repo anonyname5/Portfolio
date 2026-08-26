@@ -8,7 +8,7 @@ import ThemeToggle from '../ui/ThemeToggle';
 
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { activeSection } = useScrollPosition();
+  const { activeSection, setActiveOnClick } = useScrollPosition();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -28,6 +28,8 @@ const Navigation = () => {
 
   const handleNavClick = (href) => {
     const sectionId = href.replace('#', '');
+    // Move the underline immediately so it never lags a step behind.
+    setActiveOnClick(sectionId);
     // Close mobile menu first
     setIsMobileMenuOpen(false);
     // Small delay to ensure menu closes before scrolling

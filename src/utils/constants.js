@@ -6,7 +6,7 @@ const NAME = "Ahmad Syukri Sazali";
 
 export const personalInfo = {
   name: NAME,
-  title: "Software Developer",
+  title: "System Developer",
   email: "ahmdsyukri09@gmail.com",
   location: "Shah Alam, Malaysia",
   avatar: `${BASE_URL}avatar.jpg`,

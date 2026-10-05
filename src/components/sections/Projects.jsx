@@ -1,5 +1,4 @@
-import { motion } from 'framer-motion';
-import { Github } from 'lucide-react';
+import { Github, Building2, User } from 'lucide-react';
 import { useState, useCallback } from 'react';
 import { projects, socialLinks } from '../../utils/constants';
 import ProjectCard from '../ui/ProjectCard';
@@ -18,9 +17,23 @@ const Projects = () => {
     liveUrl: '',
     githubUrl: '',
     featured: false,
-    gradient: 'from-slate-500 to-gray-600',
   };
-  const allProjects = [...projects, comingSoonProject];
+  const projectGroups = [
+    {
+      key: 'organization',
+      title: 'Organization Projects',
+      subtitle: 'Enterprise systems I build and maintain at work.',
+      icon: Building2,
+      items: projects.filter((project) => project.organization),
+    },
+    {
+      key: 'personal',
+      title: 'Personal Projects',
+      subtitle: 'Side projects I build to learn and explore new stacks.',
+      icon: User,
+      items: [...projects.filter((project) => !project.organization), comingSoonProject],
+    },
+  ];
   const [modalState, setModalState] = useState({ isOpen: false, imageSrc: '', imageAlt: '' });
 
   const handleImageClick = useCallback((imageSrc, imageAlt) => {
@@ -45,32 +58,36 @@ const Projects = () => {
           </div>
         </FadeIn>
 
-        {/* Featured Projects Grid */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-50px' }}
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.1,
-              },
-            },
-          }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12"
-        >
-          {allProjects.map((project, index) => (
-            <ProjectCard 
-              key={project.id} 
-              project={project} 
-              index={index} 
-              onImageClick={handleImageClick}
-            />
-          ))}
-        </motion.div>
+        {projectGroups.map(({ key, title, subtitle, icon: Icon, items }) => (
+          <div key={key} className="mb-12 sm:mb-16">
+            <FadeIn direction="up">
+              <div className="flex items-center gap-3 mb-6 sm:mb-8">
+                <div className="p-2.5 rounded-xl glass-light dark:glass-dark border border-white/20 dark:border-white/10">
+                  <Icon className="w-5 h-5 text-primary-600 dark:text-primary-400" />
+                </div>
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-dark-700">
+                    {title}
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-dark-400">
+                    {subtitle}
+                  </p>
+                </div>
+              </div>
+            </FadeIn>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {items.map((project, index) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  index={index}
+                  onImageClick={handleImageClick}
+                />
+              ))}
+            </div>
+          </div>
+        ))}
 
         {/* View All on GitHub */}
         <FadeIn direction="up" delay={0.4}>

@@ -1,11 +1,55 @@
 import { motion } from 'framer-motion';
-import { Github, ExternalLink, ZoomIn, Building2 } from 'lucide-react';
+import {
+  Github,
+  ExternalLink,
+  ZoomIn,
+  Building2,
+  ScrollText,
+  Receipt,
+  FileSpreadsheet,
+  Workflow,
+  SquareKanban,
+  ListChecks,
+  HeartPulse,
+  Utensils,
+  ShoppingCart,
+  MapPinned,
+  QrCode,
+  Sparkles,
+  FolderCode,
+} from 'lucide-react';
 import { useCallback } from 'react';
 import Button from './Button';
+
+const PROJECT_ICONS = {
+  scroll: ScrollText,
+  receipt: Receipt,
+  spreadsheet: FileSpreadsheet,
+  pipeline: Workflow,
+  kanban: SquareKanban,
+  checklist: ListChecks,
+  health: HeartPulse,
+  food: Utensils,
+  cart: ShoppingCart,
+  map: MapPinned,
+  qr: QrCode,
+};
+
+const DOT_PATTERN = {
+  backgroundImage: 'radial-gradient(currentColor 1px, transparent 1px)',
+  backgroundSize: '14px 14px',
+};
 
 const ProjectCard = ({ project, index, onImageClick }) => {
   const isComingSoon = project.id === 'coming-soon';
   const isOngoing = project.status === 'ongoing';
+  const isMobile = project.platform === 'mobile';
+  const PlaceholderIcon = isComingSoon
+    ? Sparkles
+    : PROJECT_ICONS[project.icon] || FolderCode;
+  const placeholderCaption = isComingSoon
+    ? 'In Progress'
+    : project.tags.slice(0, 2).join(' · ');
 
   const handleOpenModal = useCallback((e) => {
     e.stopPropagation();
@@ -30,26 +74,55 @@ const ProjectCard = ({ project, index, onImageClick }) => {
           : 'border-white/20 dark:border-white/10 hover:border-primary-400 dark:hover:border-primary-500'
       }`}>
         {/* Project Image/Thumbnail */}
-        <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary-400 to-secondary-500">
-          {project.image ? (
-            <div
-              className="w-full h-full cursor-pointer"
+        <div className="relative aspect-[16/10] overflow-hidden bg-primary-100 dark:bg-dark-100 border-b border-black/5 dark:border-white/5">
+          <div className="absolute inset-0 text-primary-300 dark:text-dark-200" style={DOT_PATTERN} />
+
+          {project.image && isMobile && (
+            <button
+              type="button"
               onClick={handleOpenModal}
+              aria-label={`View ${project.title} screenshot`}
+              className="absolute left-1/2 top-5 w-[42%] aspect-[9/17] -translate-x-1/2 cursor-zoom-in rounded-[1.5rem] border-[5px] border-gray-900 bg-gray-950 shadow-2xl ring-1 ring-white/10 overflow-hidden transition-transform duration-500 ease-out group-hover:-translate-y-1.5"
             >
+              <span className="absolute top-1 left-1/2 z-10 h-1.5 w-8 -translate-x-1/2 rounded-full bg-gray-900" />
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full rounded-[1.1rem] object-contain object-top pt-3"
                 loading="lazy"
               />
-            </div>
-          ) : (
-            <div className="w-full h-full flex items-center justify-center">
-              <div className={`bg-gradient-to-br ${project.gradient} w-full h-full flex items-center justify-center`}>
-                <span className={`text-4xl font-bold text-white ${isComingSoon ? 'opacity-95' : 'opacity-80'}`}>
-                  {isComingSoon ? '+' : project.title.charAt(0)}
-                </span>
+            </button>
+          )}
+
+          {project.image && !isMobile && (
+            <button
+              type="button"
+              onClick={handleOpenModal}
+              aria-label={`View ${project.title} screenshot`}
+              className="absolute left-5 right-5 top-5 -bottom-px flex flex-col cursor-zoom-in rounded-t-xl bg-white dark:bg-dark-100 shadow-2xl ring-1 ring-black/10 overflow-hidden transition-transform duration-500 ease-out group-hover:-translate-y-1.5"
+            >
+              <span className="flex h-5 flex-shrink-0 items-center gap-1.5 border-b border-black/5 bg-gray-100 px-2.5 dark:bg-dark-200">
+                <span className="h-1.5 w-1.5 rounded-full bg-red-400" />
+                <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              </span>
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full flex-1 min-h-0 object-cover object-left-top"
+                loading="lazy"
+              />
+            </button>
+          )}
+
+          {!project.image && (
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+              <div className="rounded-2xl bg-white dark:bg-dark-200 p-4 shadow-lg ring-1 ring-black/5 dark:ring-white/10 transition-transform duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-105">
+                <PlaceholderIcon className="h-9 w-9 text-primary-700 dark:text-dark-700" strokeWidth={1.75} />
               </div>
+              <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary-600 dark:text-dark-500">
+                {placeholderCaption}
+              </span>
             </div>
           )}
           {isComingSoon && (
@@ -67,7 +140,7 @@ const ProjectCard = ({ project, index, onImageClick }) => {
             </div>
           )}
           {/* Overlay on hover */}
-          <div className="absolute inset-0 bg-primary-500/0 group-hover:bg-primary-500/20 transition-all duration-300 flex items-center justify-center gap-4 pointer-events-none">
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-colors duration-300 flex items-center justify-center gap-4 pointer-events-none">
             {project.image && (
               <motion.div
                 className="opacity-0 group-hover:opacity-100 p-3 rounded-full bg-white/90 dark:bg-dark-800/90 backdrop-blur-sm pointer-events-auto cursor-pointer"

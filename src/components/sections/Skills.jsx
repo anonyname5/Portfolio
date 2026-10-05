@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { skills, frameworks } from '../../utils/constants';
+import { skills, frameworks, databases, tools } from '../../utils/constants';
 import SkillCard from '../ui/SkillCard';
 import Card from '../ui/Card';
 import FadeIn from '../animations/FadeIn';
@@ -7,14 +7,24 @@ import FadeIn from '../animations/FadeIn';
 const Skills = () => {
   const skillCategories = [
     {
-      title: 'Skills',
-      subtitle: 'Programming languages and technologies',
+      title: 'Languages',
+      subtitle: 'Programming languages I use',
       items: skills,
     },
     {
       title: 'Frameworks',
-      subtitle: 'Frameworks I work with',
+      subtitle: 'Frameworks and libraries I work with',
       items: frameworks,
+    },
+    {
+      title: 'Databases',
+      subtitle: 'Databases I build on',
+      items: databases,
+    },
+    {
+      title: 'DevOps & Tools',
+      subtitle: 'Infrastructure and everyday tooling',
+      items: tools,
     },
   ];
 
